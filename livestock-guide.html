@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mwongozo wa Afya ya Mifugo nchini Tanzania — ugonjwa, dalili, matibabu, na ratiba za chanjo. Tafuta kwa urahisi kwa kutumia search bar.">
+  <title>Mwongozo wa Mifugo | Vet IDEA TZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional styles for guide page */
+    .search-container { text-align: center; margin: 2rem 0; }
+    #search-input { 
+      width: 100%; 
+      max-width: 600px; 
+      padding: 1rem; 
+      font-size: 1.1rem; 
+      border: 2px solid #0d6a38; 
+      border-radius: 10px; 
+      margin: 0 auto; 
+      display: block;
+    }
+    .results { margin-top: 2rem; }
+    .result-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 12px rgba(13,106,56,0.1);
+    }
+    .result-card h3 { color: #0d6a38; margin-bottom: 0.5rem; }
+    .back-btn {
+      display: inline-block;
+      background: #0d6a38;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+    }
+    .no-results { text-align: center; color: #64748b; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="logo">🐮 Vet IDEA TZ</div>
+    <nav>
+      <a href="index.html">Mwanzo</a>
+      <a href="index.html#about">Kuhusu</a>
+      <a href="index.html#contact">Wasiliana</a>
+      <button id="theme-toggle">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <a href="index.html" class="back-btn">← Kurudi Mwanzo</a>
+  
+  <section class="section">
+    <h2>📘 Mwongozo wa Afya ya Mifugo</h2>
+    <p>Tafuta habari kuhusu ugonjwa, dalili, matibabu, na usimamizi wa mifugo nchini Tanzania.</p>
+    
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Tafuta... (mfano: 'ECF', 'chanjo ya mbuzi', 'jotoro')">
+    </div>
+
+    <div class="results" id="results">
+      <!-- Matokeo yatagenzwa kwa JavaScript -->
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 <strong>Vet IDEA TZ</strong> — Dr. Danson Sanga</p>
+  </div>
+</footer>
+
+<script>
+// Database ya ugonjwa wa mifugo (Tanzania-focused)
+const livestockData = [
+  {
+    title: "East Coast Fever (ECF)",
+    keywords: ["ecf", "east coast fever", "theileria", "fever", "joto"],
+    content: "Husababishwa na buibui wa Theileria. Dalili: joto kali, macho yanauma, mapafu yanashinda kwa nguvu. Matibabu: Parvaquone (Ovitrel). Ukingo: Infection & Treatment Method (ITM)."
+  },
+  {
+    title: "Mastitis (Ugonjwa wa Maziwa)",
+    keywords: ["mastitis", "maziwa", "infection ya tezi", "tezi"],
+    content: "Uwepo wa bakteria kwenye tezi la maziwa. Dalili: maziwa yenye rangi ya bluu au kijivu, uchovu wa tezi. Matibabu: Antibiotics za intramammary (Mastiplan). Fanya California Mastitis Test (CMT) kila mwezi."
+  },
+  {
+    title: "Jotoro (Bloat)",
+    keywords: ["jotoro", "bloat", "tumbo limejaa gesi", "tumbo"],
+    content: "Ujumbe wa gesi kwenye tumbo. Dalili: tumbo limekua kubwa, ng’ombe anashindwa kupumua. Matibabu ya haraka: Fanya tundu la ndogo kwenye tumbo kwa kisu kilichosafishwa. Tumia anti-foaming agents (mafuta ya mboga 200ml kwa ng’ombe mkubwa)."
+  },
+  {
+    title: "Contagious Bovine Pleuropneumonia (CBPP)",
+    keywords: ["cbpp", "mapafu", "pleuropneumonia", "ugonjwa wa mapafu"],
+    content: "Ugonjwa wa mapafu unaosambazwa kwa kupumua. Dalili: pumzi kubwa, maumbo ya mapafu yanauma. Chanjo: inapatikana kwa serikali. Matibabu: Oxytetracycline."
+  },
+  {
+    title: "Ratiba ya Chanjo ya Ng’ombe",
+    keywords: ["chanjo", "vaccination", "ng'ombe", "ratiba"],
+    content: "• 3–6 miezi: CBPP\n• 4–8 miezi: ECF (kwa ITM)\n• Kila mwaka: FMD (kama inapatikana)\n• Kila 6 miezi: Anthrax (kwenye maeneo ya ugonjwa)."
+  },
+  {
+    title: "Ratiba ya Chanjo ya Mbuzi",
+    keywords: ["mbuzi", "chanjo", "mbuzi", "ppr"],
+    content: "• 4–6 miezi: PPR (Peste des Petits Ruminants)\n• Kila mwaka: Contagious Caprine Pleuropneumonia (CCPP)\n• Kila 6 miezi: Anthrax (maeneo ya ugonjwa)."
+  },
+  {
+    title: "Ukimwi wa Mbuzi (CAE)",
+    keywords: ["cae", "ukimwi", "mbuzi", "virus"],
+    content: "Ugonjwa unaosababisha uchovu, ugonjwa wa viungo, na matatizo ya mapafu. Hakuna matibabu. Ukingo: Aibu wanyama waliotambuliwa, usifanye uzalishaji wa kibinadamu."
+  }
+];
+
+// Search function
+const searchInput = document.getElementById('search-input');
+const resultsDiv = document.getElementById('results');
+
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.toLowerCase().trim();
+  
+  if (query === '') {
+    resultsDiv.innerHTML = '<div class="no-results">Tafuta kwa kutia neno kama "ECF", "chanjo", "jotoro", "mastitis", n.k.</div>';
+    return;
+  }
+
+  const matches = livestockData.filter(item => 
+    item.title.toLowerCase().includes(query) || 
+    item.keywords.some(kw => kw.includes(query) || query.includes(kw))
+  );
+
+  if (matches.length === 0) {
+    resultsDiv.innerHTML = `<div class="no-results">Samahani, hatupati matokeo ya "${query}". Jaribu neno lingine.</div>`;
+    return;
+  }
+
+  resultsDiv.innerHTML = matches.map(item => `
+    <div class="result-card">
+      <h3>${item.title}</h3>
+      <p>${item.content.replace(/\n/g, '<br>')}</p>
+    </div>
+  `).join('');
+});
+
+// Initialize with placeholder
+window.onload = () => {
+  resultsDiv.innerHTML = '<div class="no-results">Tafuta kwa kutia neno kama "ECF", "chanjo", "jotoro", "mastitis", n.k.</div>';
+};
+
+// Dark mode (reuse from main site)
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+  if (document.getElementById('theme-toggle')) {
+    document.getElementById('theme-toggle').textContent = saved === 'dark' ? '☀️' : '🌙';
+  }
+});
+
+if (document.getElementById('theme-toggle')) {
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    const next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.getElementById('theme-toggle').textContent = next === 'dark' ? '☀️' : '🌙';
+  });
+};
+</script>
+
+</body>
+</html>
