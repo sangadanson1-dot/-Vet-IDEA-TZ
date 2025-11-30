@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vet IDEA TZ — Dr. Danson Sanga. Huduma za afya ya wanyama nchini Tanzania: uchunguzi, ukingo, usimamizi wa mifugo, na ushauri wa online. Wasiliana: 0776 011 896.">
+  <meta name="keywords" content="veterinary doctor Tanzania, daktari wa wanyama, afya ya ng'ombe, afya ya mbuzi, mifugo Tanzania, Vet IDEA TZ">
+  <title>Vet IDEA TZ | Veterinary Doctor Tanzania</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- AI CHAT BUTTON -->
+<div id="ai-chat-btn" onclick="toggleChat()">🤖 VetBot TZ</div>
+
+<!-- AI CHAT PANEL -->
+<div id="ai-chat-panel">
+  <div class="chat-header">
+    <span>VetBot TZ — AI ya Afya ya Wanyama</span>
+    <button onclick="toggleChat()">×</button>
+  </div>
+  <div id="chat-messages">
+    <div class="msg ai">Habari! Mimi ni VetBot TZ — AI yako ya afya ya wanyama. Unaweza kunipa dalili, aina ya mnyama, au suala — nitakupa maelekezo ya haraka kwa Kiswahili au Kiingerezi.</div>
+  </div>
+  <input type="text" id="user-input" placeholder="Andika hapa... (mfano: 'Nini dalili za ECF?')">
+  <button onclick="sendMessage()">Tuma</button>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="logo">🐮 Vet IDEA TZ</div>
+    <nav>
+      <a href="#about">Kuhusu</a>
+      <a href="#services">Huduma</a>
+      <a href="#downloads">Pakua</a>
+      <a href="#contact">Wasiliana</a>
+      <button id="theme-toggle">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <img src="images/doctor.jpg" alt="Dr. Danson Sanga - Vet IDEA TZ" class="hero-img">
+    <h1>Vet IDEA TZ</h1>
+    <p><strong>Innovation • Diagnosis • Education • Animal Health</strong><br>
+       Dr. Danson Sanga — Veterinary Practitioner, Tanzania</p>
+    <a href="#contact" class="btn">Pata Ushauri</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <h2>📝 Kuhusu Vet IDEA TZ</h2>
+    <p>Tunatoa huduma za afya ya wanyama kwa uangalifu wa juu, ujuzi wa kimataifa, na uwezo wa kikabila. Tunafanya kazi kwa ajili ya:</p>
+    <ul>
+      <li>✅ Wakulima wa mifugo</li>
+      <li>✅ Wamiliki wa wanyama wa nyumbani</li>
+      <li>✅ Vyuo vya kilimo</li>
+      <li>✅ Serikali za mitaa na wilaya</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container">
+    <h2>🛠️ Huduma Zetu</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>🔬 Uchunguzi wa Kina</h3>
+        <p>Uchunguzi wa damu, mkojo, na sampuli za tishu kwa ugonjwa wa mifugo.</p>
+      </div>
+      <div class="service-card">
+        <h3>🛡️ Ukingo (Vaccination)</h3>
+        <p>Ratiba ya chanjo ya kitaifa kwa ng’ombe, mbuzi, kondoo, na kuku.</p>
+      </div>
+      <div class="service-card">
+        <h3>📱 Ushauri wa Online</h3>
+        <p>Tuma picha ya dalili, piga simu, au wasiliana kwa WhatsApp — nitakusaidia haraka.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section id="downloads" class="section">
+  <div class="container">
+    <h2>📥 Pakua Rasilimali Bure</h2>
+    <div class="downloads-grid">
+      <div class="download-card">
+        <h3>📘 Mwongozo wa Afya ya Mifugo</h3>
+        <p>PDF ya kiswahili — ugonjwa 10 wa kawaida, dalili, na matibabu.</p>
+        <a href="downloads/Livestock-Health-Guide.pdf" download class="btn download">Pakua PDF</a>
+      </div>
+      <div class="download-card">
+        <h3>📅 Ratiba ya Chanjo (Tanzania)</h3>
+        <p>Kwa ng’ombe, mbuzi, kondoo — kulingana na mazingira ya kitaifa.</p>
+        <a href="downloads/Vaccination-Schedule-TZ.pdf" download class="btn download">Pakua</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2>📞 Wasiliana na Vet IDEA TZ</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span>📱</span>
+        <div>
+          <strong>Simu:</strong><br>
+          <a href="tel:+255776011896">0776 011 896</a><br>
+          <a href="tel:+255793292245">0793 292 245</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span>✉️</span>
+        <div>
+          <strong>Barua pepe:</strong><br>
+          <a href="mailto:sangadanson1@gmail.com">sangadanson1@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span>📘</span>
+        <div>
+          <strong>Facebook:</strong><br>
+          <a href="https://www.facebook.com/share/18Gxj9aXwy/" target="_blank">@DrDansonSanga</a>
+        </div>
+      </div>
+    </div>
+    <a href="https://wa.me/255776011896?text=Habari%20Dr.%20Sanga%2C%20ninaomba%20ushauri%20wa%20Vet%20IDEA%20TZ" 
+       class="btn whatsapp" style="margin-top:20px;">📲 Wasiliana kwa WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 <strong>Vet IDEA TZ</strong> — Dr. Danson Sanga. Hakiki: TANVET, TVMA.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+    </html>
